@@ -1,0 +1,7 @@
+<%= l(:mail_body_whining, @issues.size, @days) %>:
+
+<% @issues.each do |issue| -%>
+* <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: #{issue.subject} was last updated on #{issue.updated_on}" %>
+<% end -%>
+
+<%= @issues_url %>

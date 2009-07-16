@@ -1,0 +1,12 @@
+= whining
+
+This plugin provides email alerts when an issue had not been updated
+since a certain time.
+
+Created by Emmanuel Bretelle
+
+Usage:
+------
+Create a cron job with a line similar to this:
+0 7 * * 1,2,3,4,5 www-data cd /path/to/redmine && /usr/bin/rake redmine:send_whining days=7 RAILS_ENV="production"
+
