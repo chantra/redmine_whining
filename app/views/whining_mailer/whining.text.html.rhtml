@@ -1,4 +1,11 @@
-<p><%= l(:mail_body_whining, @issues.size, @days) %></p>
+<p>
+<%= 
+if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
+	l(:mail_body_whining, @issues.size, @days )
+else
+	l(:mail_body_whining, :count => @issues.size, :days => @days) 
+end
+%></p>
 
 <ul>
 <% @issues.each do |issue| -%>

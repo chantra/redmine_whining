@@ -35,7 +35,11 @@ class WhiningMailer < Mailer
   def whining(user, issues, days)
     set_language_if_valid user.language
     recipients user.mail
-    subject l(:mail_subject_whining, issues.size, days)
+		if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
+	    subject l(:mail_subject_whining, issues.size, days)
+		else
+			subject l(:mail_subject_whining, :count => issues.size, :days => days )
+		end
     body :issues => issues,
          :days => days,
          :issues_url => url_for(:controller => 'issues', :action => 'index', :set_filter => 1, :assigned_to_id => user.id, :sort_key => 'updated_on', :sort_order => 'asc')

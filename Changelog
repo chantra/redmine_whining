@@ -1,2 +1,7 @@
-Thu Jul 16 15:17:11 CEST 2009
+version 0.0.2 2009-09-14
+  * Compatible with redmine trunk rev 2888
+  * improve README.rdoc
+  * Adding licensing
+
+version 0.0.1 2009-07-16
   * First release of redmine_whining plugin/cronjob
