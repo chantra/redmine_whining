@@ -27,7 +27,7 @@ Example:
   rake redmine:send_whining days=7 RAILS_ENV="production"
 END_DESC
 
-require 'config/environment'
+require File.expand_path(File.dirname(__FILE__) + "/../../../../../config/environment")
 require "mailer"
 #require "actionmailer"
 
