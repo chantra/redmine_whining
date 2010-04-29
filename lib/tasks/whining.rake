@@ -40,9 +40,15 @@ class WhiningMailer < Mailer
 		else
 			subject l(:mail_subject_whining, :count => issues.size, :days => days )
 		end
-    body :issues => issues,
-         :days => days,
-         :issues_url => url_for(:controller => 'issues', :action => 'index', :set_filter => 1, :assigned_to_id => user.id, :sort_key => 'updated_on', :sort_order => 'asc')
+    content_type "multipart/alternative"
+
+    body = {
+          :issues => issues,
+          :days => days,
+          :issues_url => url_for(:controller => 'issues', :action => 'index', :set_filter => 1, :assigned_to_id => user.id, :sort_key => 'updated_on', :sort_order => 'asc')
+    }
+    part :content_type => "text/plain", :body => render_message("whining.text.plain.rhtml", body)
+    part :content_type => "text/html", :body => render_message("whining.text.html.rhtml", body);
   end
 
   def self.whinings(options={})
