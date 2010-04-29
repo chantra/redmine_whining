@@ -65,4 +65,6 @@ You can also post your feedback about the plugin in the dedicated plugin-section
 
 As an alternative you can also join the <tt>#redmine</tt> channel on the "freenode IRC network" (http://freenode.net/irc_servers.shtml) to see if there is anyone who can provide some support.
 
+== Thanks
 
+Please see THANKS.txt
