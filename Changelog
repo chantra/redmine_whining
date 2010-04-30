@@ -1,3 +1,8 @@
+version 0.0.3 2010-04-30
+  * Fix mail issue with redmine-0.9.x
+    see issue #4: http://github.com/chantra/redmine_whining/issues/issue/4
+  * Added Japanese and French Translation
+
 version 0.0.2 2009-09-14
   * Compatible with redmine trunk rev 2888
   * improve README.rdoc
