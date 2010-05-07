@@ -57,7 +57,7 @@ class WhiningMailer < Mailer
     tracker = options[:tracker] ? Tracker.find(options[:tracker]) : nil
 
     s = ARCondition.new ["#{IssueStatus.table_name}.is_closed = ? AND #{Issue.table_name}.updated_on <= ? AND #{Issue.table_name}.assigned_to_id IS NOT NULL", false, days.day.until.to_date]
-    s << "#{Issue.table_name}.project_id = #{project.id}" if project
+    s << "#{Issue.table_name}.project_id = #{project.id} AND #{project.status} = #{Project.STATUS_ACTIVE}" if project
     s << "#{Issue.table_name}.tracker_id = #{tracker.id}" if tracker
     issues_by_assignee = Issue.find(:all, 
                                     :include => [:status, :assigned_to, :project, :tracker],
