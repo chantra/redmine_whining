@@ -1,5 +1,10 @@
 fr:
 # Traduction francaise/french translation (c) Vincent-Xavier JUMEL -- 2009
+# Emmanuel Bretelle
 # Released under GPL2 licence
-  mail_body_whining: "%d tache(s) qui vous sont assignees et que vous n'avez pas mis a jour ces %d derniers jours:"
-  mail_subject_whining: "%d tache(s) nos mise(s) a jour ces derniers %d jours"
+  mail_body_whining: "{{count}} tache(s) qui vous sont assignees et que vous n'avez pas mis a jour ces {{days} derniers jours:"
+  mail_subject_whining: "{{count}} tache(s) non mise(s) a jour ces derniers {{days}} jours"
+  whining_whine_when: "Pleurnicher après"
+  days: "jours"
+  default: "Par défaut"
+
