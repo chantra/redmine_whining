@@ -53,8 +53,9 @@ class WhiningMailer < Mailer
 
   def self.whinings(options={})
     days = options[:days] || 7
-    project = options[:project] ? Project.find(options[:project]) : nil
-    tracker = options[:tracker] ? Tracker.find(options[:tracker]) : nil
+
+    projects = EnabledModule.find(:all, :conditions => ["name = 'whining'"].collect { |mod| mod.project_id }
+    return if projects.length == 0
 
     sql = []
     params = []
@@ -72,8 +73,9 @@ class WhiningMailer < Mailer
 
     s = ARCondition.new [sql] + params
 
-    s << "#{Issue.table_name}.project_id = #{project.id}" if project
-    s << "#{Issue.table_name}.tracker_id = #{tracker.id}" if tracker
+    s << "#{Issue.table_name}.project_id in (#{projects})"
+    trackers = Setting.plugin_redmine_whining[:trackers]
+    s << "#{Issue.table_name}.tracker_id in (#{trackers})" if trackers && trackers.length > 0
     issues_by_assignee = Issue.find(:all, 
                                     :include => [:status, :assigned_to, :project, :tracker],
                                     :conditions => s.conditions

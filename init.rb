@@ -7,4 +7,9 @@ Redmine::Plugin.register :redmine_whining do
   version '0.0.3'
 
   settings :default => { :delay_default => 7 }, :partial => 'settings/whining_settings'
+
+  project_module :whining do
+    # we need a dummy permission to enable per-project module enablement
+    permission :dummy, {:dummy => [:dummy]}, :public => true
+  end
 end

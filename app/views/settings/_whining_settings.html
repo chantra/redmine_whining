@@ -1,3 +1,8 @@
+<p>
+    <%= content_tag(:label, l(:trackers)) %>
+    <%= select_tag("settings[trackers]", options_from_collection_for_select(Tracker.all, :id, :name, Setting.plugin_redmine_whining[:trackers]), :multiple => true) %>
+</p>
+
 <fieldset>
     <legend><%= l(:whining_whine_when) %></legend>
 
