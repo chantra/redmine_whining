@@ -35,11 +35,11 @@ class WhiningMailer < Mailer
   def whining(user, issues, days)
     set_language_if_valid user.language
     recipients user.mail
-		if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
-	    subject l(:mail_subject_whining, issues.size, days)
-		else
-			subject l(:mail_subject_whining, :count => issues.size, :days => days )
-		end
+    if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
+      subject l(:mail_subject_whining, issues.size, days)
+    else
+      subject l(:mail_subject_whining, :count => issues.size, :days => days )
+    end
     content_type "multipart/alternative"
 
     body = {
@@ -56,7 +56,22 @@ class WhiningMailer < Mailer
     project = options[:project] ? Project.find(options[:project]) : nil
     tracker = options[:tracker] ? Tracker.find(options[:tracker]) : nil
 
-    s = ARCondition.new ["#{IssueStatus.table_name}.is_closed = ? AND #{Issue.table_name}.updated_on <= ? AND #{Issue.table_name}.assigned_to_id IS NOT NULL", false, days.day.until.to_date]
+    sql = []
+    params = []
+    IssuePriority.find(:all).each { |prio|
+        delay = Setting.plugin_redmine_whining["delay_#{prio.id}".intern]
+        delay = Setting.plugin_redmine_whining[:delay_default] if not delay
+
+        sql << "(#{Issue.table_name}.priority_id = ? AND #{Issue.table_name}.updated_on <= ?)"
+        params << prio.id
+        params << delay.day.until.to_date
+    }
+
+    sql = "(#{sql.join(' OR ')}) AND #{IssueStatus.table_name}.is_closed = ? AND #{Issue.table_name}.assigned_to_id IS NOT NULL"
+    params << false
+
+    s = ARCondition.new [sql] + params
+
     s << "#{Issue.table_name}.project_id = #{project.id}" if project
     s << "#{Issue.table_name}.tracker_id = #{tracker.id}" if tracker
     issues_by_assignee = Issue.find(:all, 

@@ -1,0 +1,21 @@
+<fieldset>
+    <legend><%= l(:whining_whine_when) %></legend>
+
+    <% IssuePriority.find(:all, :order => "position").each do |prio| %>
+        <p>
+            <%= content_tag(:label, prio.name) %>
+            <%
+                sym = "delay_#{prio.id}".intern
+                val = Setting.plugin_redmine_whining[sym] ?  Setting.plugin_redmine_whining[sym] : Setting.plugin_redmine_whining[:delay_default]
+            %>
+            <%= text_field_tag("settings[delay_#{prio.id}]", val) %>
+            <%= l(:days) %>
+        </p>
+    <% end %>
+    <hr/>
+    <p>
+        <%= content_tag(:label, l(:default)) %>
+        <%= text_field_tag("settings[delay_default]", Setting.plugin_redmine_whining[:delay_default]) %>
+        <%= l(:days) %>
+    </p>
+</fieldset>
