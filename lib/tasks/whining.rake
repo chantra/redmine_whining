@@ -54,7 +54,7 @@ class WhiningMailer < Mailer
   def self.whinings(options={})
     days = options[:days] || 7
 
-    projects = EnabledModule.find(:all, :conditions => ["name = 'whining'"].collect { |mod| mod.project_id }
+    projects = EnabledModule.find(:all, :conditions => ["name = 'whining'"].collect { |mod| mod.project_id })
     return if projects.length == 0
 
     sql = []
