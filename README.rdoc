@@ -9,7 +9,7 @@ since X days.
 
 ==Changelog
 
-For the complete changelog see the <tt>CHANGELOG</tt>-file in the Redmine Whining plugin directory.
+For the complete changelog see the <tt>CHANGELOG</tt> file in the Redmine Whining plugin directory.
 
 ==Latest stable release
 
@@ -17,7 +17,7 @@ The currently available, latest stable release of the plugin is version <b>0.0.3
 
 ==Purpose
 
-This rake job can be used to make sure that a ticket does not get forgottent about by emailing the owner of a ticket
+This rake job can be used to make sure that a ticket does not get forgotten about by emailing the owner of a ticket
  when tickets are active and have not been updated since a certain amount of days.
 
 ==Compatibility
@@ -26,7 +26,7 @@ This plugin is compatible with Redmine 0.8.x as well as with the current Redmine
 
 ==Obtaining 
 
-<i>URL of the GitHub repository: http://github.com/chantra/redmine_whining/tree/master</i>
+<i>URL of the GitHub repository: http://github.com/chantra/redmine_whining</i>
 
 The source of this plugin can be "cloned" from the GitHub-repo using:
 
@@ -34,7 +34,7 @@ The source of this plugin can be "cloned" from the GitHub-repo using:
 
 ==Installation
 
-- Download the plugin from the available source (see http://www.redmine.org/wiki/redmine/PluginWhining )
+- Download the plugin from the available source http://github.com/chantra/redmine_whining
 - Install the plugin as described at: http://www.redmine.org/wiki/redmine/Plugins (<b>this plugin DO NOT require a plugin database migration</b>)
 
 ==Usage
@@ -44,7 +44,7 @@ Create a cron job with a line similar to this:
 
 ==Upgrading
 
-- Backup the currently deployed Whining plugin (<tt>cp -r /vendor/plugins/redmine_whining /vendor/plugins/redmine_whining-backup</tt>)
+- Backup the currently deployed Whining plugin (<tt>cp -r /vendor/plugins/redmine_whining /path/to/some/folders/redmine_whining-backup</tt>)
 - Update the plugin using <tt>git pull</tt>
 
 ==Uninstalling
@@ -60,7 +60,10 @@ This plugin is open-source and licensed under the "GNU General Public License v2
 
 ==Support
 
-If you would like to report a bug or request a new feature you can open a new issue at the issue-tracking section of the plugins' GitHub site: http://github.com/chantra/redmine_whining/issues.
+If you would like to report a bug or request a new feature you can:
+- check if issue is listed here: http://redmine.debuntu.org/projects/redmine-whining/issues
+- open a new issue at http://redmine.debuntu.org/projects/redmine-whining/issues/new if you did not find a match
+
 You can also post your feedback about the plugin in the dedicated plugin-section of the Redmine forums (http://www.redmine.org/projects/redmine/boards/3)
 
 As an alternative you can also join the <tt>#redmine</tt> channel on the "freenode IRC network" (http://freenode.net/irc_servers.shtml) to see if there is anyone who can provide some support.
