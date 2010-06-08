@@ -1,6 +1,6 @@
 <p>
     <%= content_tag(:label, l(:trackers)) %>
-    <%= select_tag("settings[trackers]", options_from_collection_for_select(Tracker.all, :id, :name, Setting.plugin_redmine_whining[:trackers]), :multiple => true) %>
+    <%= select_tag("settings[trackers]", options_from_collection_for_select(Tracker.all, :id, :name, Setting.plugin_redmine_whining[:trackers].collect { |x| Integer(x)}), :multiple => true) %>
 </p>
 
 <fieldset>
