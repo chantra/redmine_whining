@@ -76,9 +76,9 @@ class WhiningMailer < Mailer
 
     s = ARCondition.new [sql] + params
 
-    s << "#{Issue.table_name}.project_id in (#{projects})"
+    s << "#{Issue.table_name}.project_id in (#{projects.join(",")})"
     trackers = Setting.plugin_redmine_whining[:trackers]
-    s << "#{Issue.table_name}.tracker_id in (#{trackers})" if trackers && trackers.length > 0
+    s << "#{Issue.table_name}.tracker_id in (#{trackers.join(",")})" if trackers && trackers.length > 0
     issues_by_assignee = Issue.find(:all, 
                                     :include => [:status, :assigned_to, :project, :tracker],
                                     :conditions => s.conditions
