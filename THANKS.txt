@@ -3,3 +3,4 @@ Redmine Whining THANKS:
 
 yuja (Yuya Nishihara)                   http://github.com/yuja
 vincentxavier (Vincent-Xavier JUMEL)    http://github.com/vincentxavier
+friflaj                                 http://github.com/friflaj

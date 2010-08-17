@@ -1,3 +1,10 @@
+version 0.0.4 2010-08-17
+  * Yet a new mail issue fix for redmine-0.9.x
+    see issue #8: http://redmine.debuntu.org/issues/8
+  * Localization:
+    * Backported Italian Translation (Flavio Calva)
+    * Backported Ducth Translation (friflaj)
+
 version 0.0.3 2010-04-30
   * Fix mail issue with redmine-0.9.x
     see issue #4: http://github.com/chantra/redmine_whining/issues/issue/4
