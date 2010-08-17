@@ -1,0 +1,4 @@
+it:
+# Le stringhe italiane vanno qui
+  mail_body_whining: "{{count}} segnalazione/i assegnate a te non sono state aggiornate negli ultimi {{days}} giorni:"
+  mail_subject_whining: "{{count}} segnalazione/i non aggiornate negli ultimi {{days}} giorni"
