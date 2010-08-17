@@ -47,8 +47,9 @@ class WhiningMailer < Mailer
           :days => days,
           :issues_url => url_for(:controller => 'issues', :action => 'index', :set_filter => 1, :assigned_to_id => user.id, :sort_key => 'updated_on', :sort_order => 'asc')
     }
-    part :content_type => "text/plain", :body => render_message("whining.text.plain.rhtml", body)
-    part :content_type => "text/html", :body => render_message("whining.text.html.rhtml", body);
+    #part :content_type => "text/plain", :body => render_message("whining.text.plain.rhtml", body)
+    #part :content_type => "text/html", :body => render_message("whining.text.html.rhtml", body)
+    render_multipart('whining', body)
   end
 
   def self.whinings(options={})
