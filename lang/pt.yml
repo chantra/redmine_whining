@@ -1,0 +1,7 @@
+# Portuguese strings go here
+mail_body_whining: "%d tarefa(s) atribuidas a si não foram actualizadas nos últimos %d dias:"
+mail_subject_whining: "%d tarefa(s) não actualizadas nos últimos %d dias"
+whining_whine_when: "Lembrar após"
+days: "dias"
+default: "Default"
+trackers: "Trackers"
