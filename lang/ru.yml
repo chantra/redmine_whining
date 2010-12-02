@@ -1,0 +1,7 @@
+# Russians strings go here
+mail_body_whining: "В %d назначенных Вам задач, не было обновлений в течении %d суток:"
+mail_subject_whining: "%d задач не обновлялись за последние %d суток"
+whining_whine_when: "Жалуюсь после "
+days: "дней"
+default: "По умолчанию"
+trackers: "Виды задач"
