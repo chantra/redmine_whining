@@ -2,7 +2,6 @@ es:
 # Spanish strings go here
   mail_body_whining: "{{count}} peticione(s) asignada(s) a usted, no se ha(n) actualizado en los ultimos {{days}} dias:"
   mail_subject_whining: "{{count}} peticione(s) no actualizadas en los ultimos {{days}} dias"
-  update: "actualizado en"
   whining_whine_when: "Recordar (segun prioridad) despues de"
   days: "dias"
   default: "Por defecto"
