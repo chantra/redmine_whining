@@ -1,0 +1,8 @@
+ca:
+# Catalan strings go here
+  mail_body_whining: "{{count}} assumpte(s) que li han assignat, no s'han actualitzat en els ultims {{days}} dies:"
+  mail_subject_whining: "{{count}} assumpte(s) no actualitzat en els ultims {{days}} dies"
+  whining_whine_when: "Recordar (segon prioritat) despres de"
+  days: "dies"
+  default: "Per defecte"
+  trackers: "Seguidors"
