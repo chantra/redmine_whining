@@ -22,6 +22,7 @@ Available options:
   * days     => number of days since last update (defaults to 7)
   * tracker  => id of tracker (defaults to all trackers)
   * project  => id or identifier of project (defaults to all projects)
+  * debug    => If set, do not send email, just output what would be done
 
 Example:
   rake redmine:send_whining days=7 RAILS_ENV="production"
@@ -54,6 +55,7 @@ class WhiningMailer < Mailer
 
   def self.whinings(options={})
     days = options[:days] || 7
+    debug = options[:debug] || 0
     project = options[:project] ? Project.find(options[:project]) : nil
     tracker = options[:tracker] ? Tracker.find(options[:tracker]) : nil
 
@@ -65,7 +67,15 @@ class WhiningMailer < Mailer
                                     :conditions => s.conditions
                                     ).group_by(&:assigned_to)
     issues_by_assignee.each do |assignee, issues|
-      deliver_whining(assignee, issues, days) unless assignee.nil?
+      if debug != 0
+        puts "Sending email to #{assignee.mail}\n"
+        issues.each do | issue |
+          puts "\t#{issue.id} - #{issue.subject}\n"
+        end
+        puts "\n"
+      else
+        deliver_whining(assignee, issues, days) unless assignee.nil?
+      end
     end
   end
 end
@@ -74,6 +84,7 @@ namespace :redmine do
   task :send_whining => :environment do
     options = {}
     options[:days] = ENV['days'].to_i if ENV['days']
+    options[:debug] = ENV['debug'].to_i if ENV['debug']
     options[:project] = ENV['project'] if ENV['project']
     options[:tracker] = ENV['tracker'].to_i if ENV['tracker']
     
