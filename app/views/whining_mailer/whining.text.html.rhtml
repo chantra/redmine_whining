@@ -9,7 +9,7 @@ end
 
 <ul>
 <% @issues.each do |issue| -%>
-    <li><%=h "#{issue.project} - #{issue.tracker} ##{issue.id}: #{issue.subject} was last updated on #{issue.updated_on} " %></li>
+    <li><%=h issue.project%> - <%=link_to("#{issue.tracker} ##{issue.id}", :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: <%=h "#{issue.subject} was last updated on #{issue.updated_on}" %></li>
 <% end -%>
 </ul>
 
