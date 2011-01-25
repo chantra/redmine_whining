@@ -1,3 +1,8 @@
+version 0.0.5 2011-01-25
+	* Locatlization:
+	  * Backported Spanish and Catalan translation (Daniel "ideabcn")
+	* Backported link to issue ((Daniel "ideabcn")
+
 version 0.0.4 2010-08-17
   * Yet a new mail issue fix for redmine-0.9.x
     see issue #8: http://redmine.debuntu.org/issues/8
