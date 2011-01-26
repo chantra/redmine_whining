@@ -4,6 +4,7 @@ fr:
 # Released under GPL2 licence
   mail_body_whining: "{{count}} tache(s) qui vous sont assignees et que vous n'avez pas mis a jour ces {{days}} derniers jours:"
   mail_subject_whining: "{{count}} tache(s) non mise(s) a jour ces derniers {{days}} jours"
+  label_update: "was updated on"
   whining_whine_when: "Pleurnicher après"
   days: "jours"
   default: "Par défaut"

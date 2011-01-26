@@ -2,6 +2,7 @@ nl:
 # Dutch strings go here
   mail_body_whining: "{{count}} issue(s) die aan u zijn toegekend zijn niet gewijzigd in de laatste {{days}} dagen:"
   mail_subject_whining: "{{count}} issue(s) niet gewijzigd in de laatste {{days}} dagen"
+  label_update: "was updated on"
   whining_whine_when: "Zeuren na"
   days: "dagen"
   default: "Standaard"

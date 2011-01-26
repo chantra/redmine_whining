@@ -2,6 +2,7 @@ de:
 # German strings go here
   mail_body_whining: "{{count}} Ticket(s), die Ihnen zugwiesen sind, wurden in den letzten {{days}} Tagen nicht aktualisiert"
   mail_subject_whining: "{{count}} Tickets(s) wurden nicht aktualisiert."
+  label_update: "was updated on"
   whining_whine_when: "Wann weinen?"
   days: "Tage"
   default: "Default"
