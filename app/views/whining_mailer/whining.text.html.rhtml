@@ -9,7 +9,7 @@ end
 
 <ul>
 <% @issues.each do |issue| -%>
-    <li><%=h issue.project%> - <%=link_to("#{issue.tracker} ##{issue.id}", :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: <%=h issue.subject %></li>
+    <li><%=h issue.project%> - <%=link_to("#{issue.tracker} ##{issue.id}", :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%> : <%=h issue.subject %> - <%=h l(:label_update) %> <%=h issue.updated_on.strftime("d-%m-%Y") %></li>
 <% end -%>
 </ul>
 
