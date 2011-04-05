@@ -22,6 +22,7 @@ Available options:
   * days     => number of days since last update (defaults to 7)
   * tracker  => id of tracker (defaults to all trackers)
   * project  => id or identifier of project (defaults to all projects)
+  * statuses => id or status (defaults to all statuses)
 
 Example:
   rake redmine:send_whining days=7 RAILS_ENV="production"
@@ -80,6 +81,8 @@ class WhiningMailer < Mailer
     s << "#{Issue.table_name}.project_id in (#{projects.join(",")})"
     trackers = Setting.plugin_redmine_whining[:trackers]
     s << "#{Issue.table_name}.tracker_id in (#{trackers.join(",")})" if trackers && trackers.length > 0
+    statuses = Setting.plugin_redmine_whining[:statuses]
+    s << "#{Issue.table_name}.status_id in (#{statuses.join(",")})" if statuses && statuses.length > 0
     issues_by_assignee = Issue.find(:all, 
                                     :include => [:status, :assigned_to, :project, :tracker],
                                     :conditions => s.conditions
@@ -96,6 +99,7 @@ namespace :redmine do
     options[:days] = ENV['days'].to_i if ENV['days']
     options[:project] = ENV['project'] if ENV['project']
     options[:tracker] = ENV['tracker'].to_i if ENV['tracker']
+    options[:status] = ENV['status'].to_i if ENV['status']
     
     WhiningMailer.whinings(options)
   end
