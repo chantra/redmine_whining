@@ -33,18 +33,19 @@ require "mailer"
 #require "actionmailer"
 
 class WhiningMailer < Mailer
-  def whining(user, issues, days)
+  def whining(user, nbissues, issues_by_project, days)
     set_language_if_valid user.language
     recipients user.mail
-		if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
-	    subject l(:mail_subject_whining, issues.size, days)
-		else
-			subject l(:mail_subject_whining, :count => issues.size, :days => days )
-		end
+    if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
+        subject l(:mail_subject_whining, nbissues, days)
+    else
+        subject l(:mail_subject_whining, :count => nbissues, :days => days )
+    end
     content_type "multipart/alternative"
 
     body = {
-          :issues => issues,
+          :nbissues => nbissues,
+          :issues_by_project => issues_by_project,
           :days => days,
           :issues_url => url_for(:controller => 'issues', :action => 'index', :set_filter => 1, :assigned_to_id => user.id, :sort_key => 'updated_on', :sort_order => 'asc')
     }
@@ -67,14 +68,22 @@ class WhiningMailer < Mailer
                                     :conditions => s.conditions
                                     ).group_by(&:assigned_to)
     issues_by_assignee.each do |assignee, issues|
+      issues_by_project = issues.group_by { |p| p.project }.sort
       if debug != 0
         puts "Sending email to #{assignee.mail}\n"
-        issues.each do | issue |
-          puts "\t#{issue.id} - #{issue.subject}\n"
+        issues_by_project.each do | project |
+          p = project[0]
+          puts "Project: #{p.name}\n"
+          project[1].each do | issue |
+            puts "\t#{issue.id} - #{issue.subject}\n"
+          end
         end
+        #issues.each do | issue |
+        #  puts "\t#{issue.id} - #{issue.subject}\n"
+        #end
         puts "\n"
       else
-        deliver_whining(assignee, issues, days) unless assignee.nil?
+        deliver_whining(assignee, issues.size, issues_by_project, days) unless assignee.nil?
       end
     end
   end
