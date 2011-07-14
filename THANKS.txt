@@ -4,3 +4,6 @@ Redmine Whining THANKS:
 yuja (Yuya Nishihara)                   http://github.com/yuja
 vincentxavier (Vincent-Xavier JUMEL)    http://github.com/vincentxavier
 friflaj                                 http://github.com/friflaj
+Flavio Calva (Italian translation)
+mdias (Micael Dias) (Portuguese translation)  http://github.com/mdias
+feinerfug (Gregor Weckbecker) (German translation) https://github.com/feinerfug
