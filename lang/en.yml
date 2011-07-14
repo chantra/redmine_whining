@@ -1,3 +1,0 @@
-# English strings go here
-mail_body_whining: "%d issue(s) that are assigned to you haven't been updated in the last %d days:"
-mail_subject_whining: "%d issue(s) not updated in the last %d days"

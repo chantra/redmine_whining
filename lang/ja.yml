@@ -1,3 +1,0 @@
-# Japanese strings go here
-mail_body_whining: "あなたが担当のチケット %d つが過去 %d 日間更新されていません:"
-mail_subject_whining: "チケット %d つが過去 %d 日間ノータッチ"
