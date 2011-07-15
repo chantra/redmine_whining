@@ -36,11 +36,7 @@ class WhiningMailer < Mailer
   def whining(user, nbissues, issues_by_project, days)
     set_language_if_valid user.language
     recipients user.mail
-    if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
-        subject l(:mail_subject_whining, nbissues, days)
-    else
-        subject l(:mail_subject_whining, :count => nbissues, :days => days )
-    end
+    subject l(:mail_subject_whining, :count => nbissues, :days => days )
     content_type "multipart/alternative"
 
     body = {
