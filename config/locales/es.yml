@@ -2,3 +2,5 @@ es:
 # Spanish strings go here
   mail_body_whining: "{{count}} peticione(s) asignada(s) a usted, no se ha(n) actualizado en los ultimos {{days}} dias:"
   mail_subject_whining: "{{count}} peticione(s) no actualizadas en los ultimos {{days}} dias"
+  whining_issue_last_updated: "was last updated on"
+  whining_project: "project"

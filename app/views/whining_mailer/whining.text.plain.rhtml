@@ -1,15 +1,15 @@
 <%=
-if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
-  l(:mail_body_whining, @nbissues, @days )
-else
-  l(:mail_body_whining, :count => @nbissues, :days => @days)
-end
+l(:mail_body_whining, :count => @nbissues, :days => @days)
 %>:
 
+<% last_updated_txt = l(:whining_issue_last_updated)
+project_txt = l(:whining_project).capitalize
+-%>
+
 <% @issues_by_project.each do |project| -%>
-<%= "Project: #{project[0].name}" %>
+<%= "#{project_txt}: #{project[0].name}" %>
 <% project[1].each do |issue| -%>
-    * <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: #{issue.subject} was last updated on #{issue.updated_on}" %>
+    * <%= "#{issue.project} - #{issue.tracker} ##{issue.id}: #{issue.subject} #{last_updated_txt} #{issue.updated_on}" %>
       <%= url_for(:controller => 'issues', :action => 'show', :id => issue, :only_path => false) %>
 <% end -%>
 

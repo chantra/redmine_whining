@@ -2,3 +2,5 @@ pt:
 # Portuguese strings go here
   mail_body_whining: "{{count}} tarefa(s) atribuidas a si não foram actualizadas nos últimos {{days}} dias:"
   mail_subject_whining: "{{count}} tarefa(s) não actualizadas nos últimos {{days}} dias"
+  whining_issue_last_updated: "was last updated on"
+  whining_project: "project"

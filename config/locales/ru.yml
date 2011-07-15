@@ -2,3 +2,5 @@ ru:
 # Russians strings go here
   mail_body_whining: "В {{count}} назначенных Вам задач, не было обновлений в течении {{days}} суток:"
   mail_subject_whining: "{{count}} задач не обновлялись за последние {{days}} суток"
+  whining_issue_last_updated: "was last updated on"
+  whining_project: "project"

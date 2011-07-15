@@ -1,17 +1,16 @@
 <p>
 <%= 
-if l(:this_is_gloc_lib) == 'this_is_gloc_lib'
-	l(:mail_body_whining, @nbissues, @days )
-else
-	l(:mail_body_whining, :count => @nbissues, :days => @days)
-end
+l(:mail_body_whining, :count => @nbissues, :days => @days)
 %></p>
 
+<% last_updated_txt = l(:whining_issue_last_updated)
+project_txt = l(:whining_project).capitalize
+-%>
 <% @issues_by_project.each do |project| -%>
-<h3><%= "Project: #{project[0].name}" %></h3>
+<h3><%= "#{project_txt}: #{project[0].name}" %></h3>
 	<ul>
 	<% project[1].each do |issue| -%>
-	    <li><%=h issue.project%> - <%=link_to("#{issue.tracker} ##{issue.id}", :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: <%=h "#{issue.subject} was last updated on #{issue.updated_on}" %></li>
+	    <li><%=h issue.project%> - <%=link_to("#{issue.tracker} ##{issue.id}", :controller => 'issues', :action => 'show', :id => issue, :only_path => false)%>: <%=h "#{issue.subject} #{last_updated_txt} #{issue.updated_on}" %></li>
 	<% end -%>
 	</ul>
 <br /><br />

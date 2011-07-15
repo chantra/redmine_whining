@@ -2,3 +2,5 @@ de:
 # German strings go here
   mail_body_whining: "{{count}} Ticket(s), die Ihnen zugwiesen sind, wurden in den letzten {{days}} Tagen nicht aktualisiert"
   mail_subject_whining: "{{count}} Tickets(s) wurden nicht aktualisiert."
+  whining_issue_last_updated: "was last updated on"
+  whining_project: "project"
