@@ -1,7 +1,18 @@
+version 0.0.6 2011-07-15:
+  * Feature:
+    * List issues by project
+    * Add debug switch to rake task	
+  * Localization:
+    * Backported Russian
+    * Backported German (feinerfug)
+    * Backported Portuguese (mdias)
+    * Removed Redmine 0.8.X localization support
+    * Add more localizable components
+
 version 0.0.5 2011-01-25
-	* Locatlization:
-	  * Backported Spanish and Catalan translation (Daniel "ideabcn")
-	* Backported link to issue ((Daniel "ideabcn")
+  * Localization:
+    * Backported Spanish and Catalan translation (Daniel "ideabcn")
+  * Backported link to issue ((Daniel "ideabcn")
 
 version 0.0.4 2010-08-17
   * Yet a new mail issue fix for redmine-0.9.x

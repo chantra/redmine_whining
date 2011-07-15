@@ -13,7 +13,7 @@ For the complete changelog see the <tt>CHANGELOG</tt>-file in the Redmine Whinin
 
 ==Latest stable release
 
-The currently available, latest stable release of the plugin is version <b>0.0.5</b>.
+The currently available, latest stable release of the plugin is version <b>0.0.6</b>.
 
 ==Purpose
 
@@ -22,7 +22,7 @@ This rake job can be used to make sure that a ticket does not get forgottent abo
 
 ==Compatibility
 
-This plugin is compatible with Redmine 0.8.x as well as with the current Redmine trunk.
+This plugin is compatible with Redmine 0.9.x, Redmine 1.X as well as with the current Redmine trunk.
 
 ==Obtaining 
 
@@ -31,10 +31,13 @@ This plugin is compatible with Redmine 0.8.x as well as with the current Redmine
 The source of this plugin can be "cloned" from the GitHub-repo using:
 
 <tt>$ cd {RAILS_ROOT}/vendor/plugins && git clone git://github.com/chantra/redmine_whining.git</tt>
+<tt>$ git branch 0.0.X</tt>
+
+<b>Only branch 0.0.X is supported for now. Master branch is rather unstable</b>
 
 ==Installation
 
-- Download the plugin from the available source (see http://www.redmine.org/wiki/redmine/PluginWhining )
+- Download the plugin from the available source (see http://redmine.debuntu.org/projects/redmine-whining/wiki )
 - Install the plugin as described at: http://www.redmine.org/wiki/redmine/Plugins (<b>this plugin DO NOT require a plugin database migration</b>)
 
 ==Usage
@@ -60,7 +63,7 @@ This plugin is open-source and licensed under the "GNU General Public License v2
 
 ==Support
 
-If you would like to report a bug or request a new feature you can open a new issue at the issue-tracking section of the plugins' GitHub site: http://github.com/chantra/redmine_whining/issues.
+If you would like to report a bug or request a new feature you can open a new issue at the issue-tracking page of the plugins' http://redmine.debuntu.org/projects/redmine-whining/issues .
 You can also post your feedback about the plugin in the dedicated plugin-section of the Redmine forums (http://www.redmine.org/projects/redmine/boards/3)
 
 As an alternative you can also join the <tt>#redmine</tt> channel on the "freenode IRC network" (http://freenode.net/irc_servers.shtml) to see if there is anyone who can provide some support.
