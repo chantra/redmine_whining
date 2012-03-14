@@ -1,0 +1,5 @@
+zh:
+  mail_body_whining: "{{count}} 个指派给你的问题已经 {{days}} 天没有任何更新了:"
+  mail_subject_whining: "{{count}} 个问题在过去的 {{days}} 天内没有更新"
+  whining_issue_last_updated: "最后更新日期是"
+  whining_project: "项目"
