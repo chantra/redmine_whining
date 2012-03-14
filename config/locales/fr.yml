@@ -1,7 +1,5 @@
 fr:
-# Traduction francaise/french translation (c) Vincent-Xavier JUMEL -- 2009
-# Released under GPL2 licence
-  mail_body_whining: "{{count}} tache(s) qui vous sont assignees et que vous n'avez pas mis a jour ces {{days}} derniers jours:"
-  mail_subject_whining: "{{count}} tache(s) nos mise(s) a jour ces derniers {{days}} jours"
-  whining_issue_last_updated: "mis a jour"
-  whining_project: "projet"
+  mail_body_whining: "Il y a {{count}} demandes(s) qui vous sont assignée(s) et que vous n'avez pas mis à jour ces {{days}} derniers jours:"
+  mail_subject_whining: "{{count}} demandes (s) non mise(s) à jour ces {{days}} derniers jours"
+  whining_issue_last_updated: "Mis à jour"
+  whining_project: "Projet"
