@@ -75,15 +75,13 @@ class WhiningMailer < Mailer
     sql = "(#{sql.join(' OR ')}) AND #{IssueStatus.table_name}.is_closed = ? AND #{Issue.table_name}.assigned_to_id IS NOT NULL"
     params << false
 
-    s = ARCondition.new [sql] + params
+    scope = Issue.scoped(:conditions => [sql] + params)
 
-    s << "#{Issue.table_name}.project_id in (#{projects.join(",")})"
+    scope = scope.scoped(:conditions => ["#{Issue.table_name}.project_id in (#{projects.join(",")})"])
     trackers = Setting.plugin_redmine_whining[:trackers]
-    s << "#{Issue.table_name}.tracker_id in (#{trackers.join(",")})" if trackers && trackers.length > 0
-    issues_by_assignee = Issue.find(:all, 
-                                    :include => [:status, :assigned_to, :project, :tracker],
-                                    :conditions => s.conditions
-                                    ).group_by(&:assigned_to)
+    scope = scope.scoped(:conditions => ["#{Issue.table_name}.tracker_id in (#{trackers.join(",")})"]) if trackers && trackers.length > 0
+    issues_by_assignee = scope.all(:include => [:status, :assigned_to, :project, :tracker]).group_by(&:assigned_to)
+
     issues_by_assignee.each do |assignee, issues|
       deliver_whining(assignee, issues, days) unless assignee.nil?
     end
