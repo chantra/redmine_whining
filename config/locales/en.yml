@@ -1,7 +1,7 @@
 en:
 # English strings go here
-  mail_body_whining: "{{count}} issue(s) that are assigned to you haven't been updated in the last {{days}} days:"
-  mail_subject_whining: "{{count}} issue(s) not updated in the last {{days}} days"
+  mail_body_whining: "%{count} issue(s) that are assigned to you haven't been updated in the last %{days} days:"
+  mail_subject_whining: "%{count} issue(s) not updated in the last %{days} days"
   whining_whine_when: "Whine after"
   days: "days"
   default: "Default"

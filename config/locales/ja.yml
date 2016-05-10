@@ -1,4 +1,4 @@
 ja:
 # Japanese strings go here
-  mail_body_whining: "あなたが担当のチケット {{count}} つが過去 {{days}} 日間更新されていません:"
-  mail_subject_whining: "チケット {{count}} つが過去 {{days}} 日間ノータッチ"
+  mail_body_whining: "あなたが担当のチケット %{count} つが過去 %{days} 日間更新されていません:"
+  mail_subject_whining: "チケット %{count} つが過去 %{days} 日間ノータッチ"
